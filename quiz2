@@ -1,0 +1,23 @@
+#question1
+#a
+scp -i 45542104.pem structure.pdb ubuntu@ec2-54-252-166-44.ap-southeast-2.compute.amazonaws.com:
+ls
+cat structure.pdb
+sed 's/Beisel/Weisel/' structure.pdb
+#b
+sed -e '/HEADER/d' structure.pdb | sed -e '/COMPND/d' | sed -e '/SOURCE/d'
+#c
+sed -n '5,10p' structure.pdb
+#d
+sed -e '/MET/d' structure.pdb
+#e
+sed -n '/HELIX/p' structure.pdb | sed -n '/ILE/p'
+#f
+sed -e '/^H/s/$/***/' structure.pdb
+#g
+sed -e '/SEQRES/s/^.*$/SEQ/' structure.pdb
+#h
+scp -i 45542104.pem jabberwocky.txt ubuntu@ec2-54-252-166-44.ap-southeast-2.compute.amazonaws.com:
+ls
+cat jabberwocky.txt
+sed -e '/^[[:space:]]/d' jabberwocky.txt | sed -e '/^$/d'
